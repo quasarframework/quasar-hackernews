@@ -1,6 +1,6 @@
 const
   theme = process.env.QUASAR_THEME || 'mat',
-  port = process.env.PORT || 9000
+  port = process.env.PORT || 9554
 
 module.exports = {
   theme,
