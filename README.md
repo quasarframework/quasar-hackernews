@@ -4,7 +4,7 @@ HackerNews clone built with Vue 2.0 + vue-router + vuex + [Quasar Framework](htt
 
 <p align="center">
   <a href="https://quasar-hackernews.now.sh" target="_blank">
-    <img src="https://cdn.rawgit.com/quasarframework/quasar-hackernews/1e1a91e8/quasar-hackernews-screenshot.png" width="700px">
+    <img src="https://cdn.rawgit.com/quasarframework/quasar-hackernews/dev/quasar-hackernews-screenshot.png" width="700px">
     <br>
     Live Demo
   </a>
