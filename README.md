@@ -46,16 +46,20 @@ Forked from [vue-hackernews-2.0](https://github.com/quasarframework/quasar-hacke
 
 ``` bash
 # install dependencies
-yarn # or: npm install
+$ yarn # or: npm install
 
-# serve in dev mode, with hot reload at localhost:8080
-yarn dev # or: npm run dev
+# serve in dev mode, with hot reload at localhost:9554
+$ yarn dev # or: npm run dev
+# ..or with iOS theme:
+$ QUASAR_THEME=ios yarn dev
 
 # build for production
-yarn build # or: npm run build
+$ yarn build # or: npm run build
+# ..or with iOS theme:
+$ QUASAR_THEME=ios yarn build
 
-# serve in production mode
-yarn start # or: npm start
+# serve in production mode (after building it)
+$ yarn start # or: npm start
 ```
 
 ## License
