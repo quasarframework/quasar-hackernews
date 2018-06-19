@@ -44,6 +44,7 @@ export default {
 .comment-children
   .comment-children
     margin-left 1.5em
+    padding-bottom 0
 
 .comment
   border-top 1px solid #eee

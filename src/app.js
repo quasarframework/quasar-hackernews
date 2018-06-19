@@ -6,8 +6,6 @@ import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
 
-import './styles/app.styl'
-
 import Quasar, {
   QLayout,
   QLayoutHeader,
@@ -17,7 +15,8 @@ import Quasar, {
   QPageContainer,
   QPage,
   QPageSticky,
-  QSpinner
+  QSpinner,
+  QPagination
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -30,7 +29,8 @@ Vue.use(Quasar, {
     QPageContainer,
     QPage,
     QPageSticky,
-    QSpinner
+    QSpinner,
+    QPagination
   }
   // directives: {},
   // plugins: {},
