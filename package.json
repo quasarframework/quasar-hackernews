@@ -25,7 +25,7 @@
     "lru-cache": "^4.1.1",
     "route-cache": "0.4.3",
     "serve-favicon": "^2.4.5",
-    "quasar-framework": "^0.16.0",
+    "quasar-framework": "^0.17.0-beta.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.5.16",

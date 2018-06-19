@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
   config.plugins.push(
     // auto generate service worker
     new SWPrecachePlugin({
-      cacheId: 'quasar-ssr-experiment',
+      cacheId: 'quasar-hackernews',
       filename: 'service-worker.js',
       minify: true,
       dontCacheBustUrlsMatching: /./,

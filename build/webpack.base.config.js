@@ -8,6 +8,13 @@ const env = require('./env')
 const isProd = process.env.NODE_ENV === 'production'
 const resolve = p => path.resolve(__dirname, p)
 
+const stylusLoader = {
+  loader: 'stylus-loader',
+  options: {
+    preferPathResolver: 'webpack'
+  }
+}
+
 module.exports = {
   devtool: isProd
     ? false
@@ -64,17 +71,18 @@ module.exports = {
                   loader: 'css-loader',
                   options: { minimize: true }
                 },
+                stylusLoader,
                 'stylus-loader'
               ],
               fallback: 'vue-style-loader'
             })
-          : ['vue-style-loader', 'css-loader', 'stylus-loader']
+          : ['vue-style-loader', 'css-loader', stylusLoader]
       },
     ]
   },
   performance: {
-    maxEntrypointSize: 300000,
-    hints: isProd ? 'warning' : false
+    maxEntrypointSize: 700000,
+    hints: false
   },
   plugins: isProd
     ? [

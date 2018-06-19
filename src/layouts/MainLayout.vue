@@ -13,7 +13,7 @@
         <a
           slot="title"
           class="header-extras github row items-center q-mx-lg text-white"
-          href="https://github.com/vuejs/vue-hackernews-2.0"
+          href="https://github.com/quasarframework/quasar-hackernews"
           target="_blank"
           rel="noopener"
         >
