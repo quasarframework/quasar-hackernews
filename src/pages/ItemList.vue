@@ -103,10 +103,12 @@ export default {
 body.mat
   .news-view
     padding-top 85px
+    padding-bottom 45px
   .news-list-nav
     box-shadow 0 1px 2px rgba(0,0,0,.1)
 body.ios
   .news-view
+    padding-top 45px
     padding-bottom 85px
   .news-list-nav
     box-shadow 0 -1px 2px rgba(0,0,0,.1)

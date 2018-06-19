@@ -3,27 +3,27 @@
     <div class="item-view-comments">
       <div class="item-view-comments-header row items-center">
         {{ item.kids ? item.descendants + ' comments' : 'No comments yet.' }}
-        <q-spinner color="primary" size="44px" class="q-ml-md" v-if="loading" />
+        <q-spinner color="primary" size="32px" class="q-ml-md" v-if="loading" />
       </div>
       <ul v-if="!loading" class="comment-children">
         <comment v-for="id in item.kids" :key="id" :id="id"></comment>
       </ul>
     </div>
 
-    <q-page-sticky position="top" expand class="item-view-header">
-      <div>
-        <div>
-          <a :href="item.url" target="_blank">
-            <h1>{{ item.title }}</h1>
-          </a>
-          <span v-if="item.url" class="host">
+    <q-page-sticky position="top" expand>
+      <div class="header-inner item-view-header row">
+        <a :href="item.url" target="_blank" class="col-12 q-mb-xs">
+          <h1 class="text-weight-medium">{{ item.title }}</h1>
+        </a>
+        <div class="meta row">
+          <div v-if="item.url" class="host q-mr-sm">
             ({{ item.url | host }})
-          </span>
-        </div>
-        <div class="meta">
-          {{ item.score }} points
-          | by <router-link :to="'/user/' + item.by">{{ item.by }}</router-link>
-          {{ item.time | timeAgo }} ago
+          </div>
+          <div>
+            {{ item.score }} points
+            | by <router-link :to="'/user/' + item.by">{{ item.by }}</router-link>
+            {{ item.time | timeAgo }} ago
+          </div>
         </div>
       </div>
     </q-page-sticky>
@@ -98,12 +98,13 @@ function fetchComments (store, item) {
 @import '~variables'
 
 .item-view
-  padding-top 100px
+  padding-top 120px
+  padding-bottom 45px
 
 .item-view-header
   background-color #fff
   padding 1em 2em 1em
-  box-shadow 0 1px 2px rgba(0,0,0,.1)
+  box-shadow 0 1px 4px rgba(0,0,0,.1)
   h1
     display inline
     font-size 1.5em
@@ -116,30 +117,26 @@ function fetchComments (store, item) {
 
 .item-view-comments
   background-color #fff
-  margin-top 10px
-  padding 0 2em .5em
+  padding 0 1em
 
 .item-view-comments-header
   margin 0
   font-size 1.1em
-  padding 1em 0
   position relative
-  height 77px
-  .spinner
-    display inline-block
-    margin -15px 0
+  min-height 55px
 
 .comment-children
   list-style-type none
-  padding 0
-  margin 0
+  padding-left 0
+  padding-bottom 1em
+  margin-top 0
 
-@media (max-width 600px)
+@media (max-width 800px)
   .item-view-header
     h1
       font-size 1.25em
   .item-view-header
     padding 1em
   .item-view-comments
-    padding 0 0.5em
+    padding 0.5em
 </style>
