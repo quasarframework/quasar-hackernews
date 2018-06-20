@@ -9,7 +9,8 @@ const serverConfig = require('./webpack.server.config')
 const readFile = (fs, file) => {
   try {
     return fs.readFileSync(path.join(clientConfig.output.path, file), 'utf-8')
-  } catch (e) {}
+  }
+  catch (e) {}
 }
 
 module.exports = function setupDevServer (app, templatePath, cb) {

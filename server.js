@@ -1,19 +1,21 @@
-const fs = require('fs')
-const path = require('path')
-const LRU = require('lru-cache')
-const express = require('express')
-const favicon = require('serve-favicon')
-const compression = require('compression')
-const microcache = require('route-cache')
-const resolve = file => path.resolve(__dirname, file)
-const { createBundleRenderer } = require('vue-server-renderer')
-const env = require('./build/env')
+const
+  fs = require('fs'),
+  path = require('path'),
+  LRU = require('lru-cache'),
+  express = require('express'),
+  favicon = require('serve-favicon'),
+  compression = require('compression'),
+  microcache = require('route-cache'),
+  resolve = file => path.resolve(__dirname, file),
+  { createBundleRenderer } = require('vue-server-renderer')
 
-const isProd = process.env.NODE_ENV === 'production'
-const useMicroCache = process.env.MICRO_CACHE !== 'false'
-const serverInfo =
-  `express/${require('express/package.json').version} ` +
-  `vue-server-renderer/${require('vue-server-renderer/package.json').version}`
+const
+  env = require('./build/env'),
+  isProd = process.env.NODE_ENV === 'production',
+  useMicroCache = process.env.MICRO_CACHE !== 'false',
+  serverInfo =
+    `express/${require('express/package.json').version} ` +
+    `vue-server-renderer/${require('vue-server-renderer/package.json').version}`
 
 console.log()
 console.log(`Running Quasar v${env.quasarVersion} with ${env.theme.toUpperCase()} theme on SSR`)
@@ -52,7 +54,8 @@ if (isProd) {
     template,
     clientManifest
   })
-} else {
+}
+else {
   // In development: setup the dev server with watch and hot-reload,
   // and create a new renderer on bundle / index template update.
   readyPromise = require('./build/setup-dev-server')(
@@ -86,15 +89,17 @@ app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 function render (req, res) {
   const s = Date.now()
 
-  res.setHeader("Content-Type", "text/html")
-  res.setHeader("Server", serverInfo)
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Server', serverInfo)
 
   const handleError = err => {
     if (err.url) {
       res.redirect(err.url)
-    } else if(err.code === 404) {
+    }
+    else if (err.code === 404) {
       res.status(404).send('404 | Page Not Found')
-    } else {
+    }
+    else {
       // Render Error Page or Redirect
       res.status(500).send('500 | Internal Server Error')
       console.error(`error during render : ${req.url}`)
