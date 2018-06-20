@@ -27,7 +27,8 @@ function fetch (child) {
   if (cache && cache.has(child)) {
     logRequests && console.log(`cache hit for ${child}.`)
     return Promise.resolve(cache.get(child))
-  } else {
+  }
+  else {
     return new Promise((resolve, reject) => {
       api.child(child).once('value', snapshot => {
         const val = snapshot.val()
@@ -65,7 +66,8 @@ export function watchList (type, cb) {
   const handler = snapshot => {
     if (first) {
       first = false
-    } else {
+    }
+    else {
       cb(snapshot.val())
     }
   }

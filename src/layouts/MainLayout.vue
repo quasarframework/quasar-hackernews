@@ -66,6 +66,7 @@ a
   min-height 55px
 
 .header-inner
+  width 100%
   max-width $container-width
   margin 0 auto
 

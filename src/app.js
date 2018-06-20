@@ -4,7 +4,7 @@ import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
-import * as filters from './util/filters'
+import { host, timeAgo } from './util/filters'
 
 import Quasar, {
   QLayout,
@@ -42,9 +42,8 @@ Vue.use(Quasar, {
 Vue.mixin(titleMixin)
 
 // register global utility filters.
-Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
-})
+Vue.filter('host', host)
+Vue.filter('timeAgo', timeAgo)
 
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)

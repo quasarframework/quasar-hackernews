@@ -36,7 +36,8 @@ export default {
     })
     if (ids.length) {
       return fetchItems(ids).then(items => commit('SET_ITEMS', { items }))
-    } else {
+    }
+    else {
       return Promise.resolve()
     }
   },

@@ -16,7 +16,7 @@ export default function createListView (type) {
     title: camelize(type),
 
     render (h) {
-      return h(ItemList, { props: { type }})
+      return h(ItemList, { props: { type } })
     }
   }
 }

@@ -23,7 +23,7 @@ import { watchList } from '../api'
 import Item from '../components/Item.vue'
 
 export default {
-  name: 'item-list',
+  name: 'ItemList',
 
   components: {
     Item
