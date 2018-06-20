@@ -78,7 +78,7 @@ const webpackConfig = {
             ],
             fallback: 'vue-style-loader'
           })
-          : ['vue-style-loader', 'css-loader', 'postcss-loader', stylusLoader]
+          : ['vue-style-loader', 'css-loader', stylusLoader]
       },
     ]
   },
