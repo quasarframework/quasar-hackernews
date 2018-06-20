@@ -79,7 +79,6 @@ export default {
 
   methods: {
     loadItems (to = this.page, from = -1) {
-      this.$bar.start()
       this.$store.dispatch('FETCH_LIST_DATA', {
         type: this.type
       }).then(() => {
@@ -92,7 +91,6 @@ export default {
           : to > from ? 'slide-left' : 'slide-right'
         this.displayedPage = to
         this.displayedItems = this.$store.getters.activeItems
-        this.$bar.finish()
       })
     }
   }

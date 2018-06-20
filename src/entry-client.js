@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import 'es6-promise/auto'
 import { createApp } from './app'
-import ProgressBar from './components/ProgressBar.vue'
+import { QAjaxBar } from 'quasar'
 
 // global progress bar
-const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
+const bar = new Vue(QAjaxBar).$mount()
 document.body.appendChild(bar.$el)
 
 // a global mixin that calls `asyncData` when a route component's params change
@@ -53,7 +53,7 @@ router.onReady(() => {
     bar.start()
     Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
       .then(() => {
-        bar.finish()
+        bar.stop()
         next()
       })
       .catch(next)
