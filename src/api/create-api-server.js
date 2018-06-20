@@ -7,7 +7,8 @@ export function createAPI ({ config, version }) {
   // so we attach the instantiated API to `process` to avoid duplications
   if (process.__API__) {
     api = process.__API__
-  } else {
+  }
+  else {
     Firebase.initializeApp(config)
     api = process.__API__ = Firebase.database().ref(version)
 

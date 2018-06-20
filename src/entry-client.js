@@ -16,7 +16,8 @@ Vue.mixin({
         store: this.$store,
         route: to
       }).then(next).catch(next)
-    } else {
+    }
+    else {
       next()
     }
   }
@@ -63,6 +64,6 @@ router.onReady(() => {
 })
 
 // service worker
-if ('https:' === location.protocol && navigator.serviceWorker) {
+if (location.protocol === 'https:' && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }

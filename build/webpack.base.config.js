@@ -1,12 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const
+  path = require('path'),
+  webpack = require('webpack'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'),
+  { VueLoaderPlugin } = require('vue-loader')
 
-const env = require('./env')
-const isProd = process.env.NODE_ENV === 'production'
-const resolve = p => path.resolve(__dirname, p)
+const
+  env = require('./env'),
+  isProd = process.env.NODE_ENV === 'production',
+  resolve = p => path.resolve(__dirname, p)
 
 const stylusLoader = {
   loader: 'stylus-loader',
@@ -15,7 +17,7 @@ const stylusLoader = {
   }
 }
 
-module.exports = {
+const webpackConfig = {
   devtool: isProd
     ? false
     : '#cheap-module-source-map',
@@ -66,17 +68,17 @@ module.exports = {
         test: /\.styl(us)?$/,
         use: isProd
           ? ExtractTextPlugin.extract({
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: { minimize: true }
-                },
-                stylusLoader,
-                'stylus-loader'
-              ],
-              fallback: 'vue-style-loader'
-            })
-          : ['vue-style-loader', 'css-loader', stylusLoader]
+            use: [
+              {
+                loader: 'css-loader',
+                options: { minimize: true }
+              },
+              'postcss-loader',
+              stylusLoader
+            ],
+            fallback: 'vue-style-loader'
+          })
+          : ['vue-style-loader', 'css-loader', 'postcss-loader', stylusLoader]
       },
     ]
   },
@@ -86,17 +88,28 @@ module.exports = {
   },
   plugins: isProd
     ? [
-        new VueLoaderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: { warnings: false }
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new ExtractTextPlugin({
-          filename: 'common.[chunkhash].css'
-        })
-      ]
+      new VueLoaderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: { warnings: false }
+      }),
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      new ExtractTextPlugin({
+        filename: 'common.[chunkhash].css'
+      })
+    ]
     : [
-        new VueLoaderPlugin(),
-        new FriendlyErrorsPlugin()
-      ]
+      new VueLoaderPlugin(),
+      new FriendlyErrorsPlugin()
+    ]
 }
+
+if (!isProd) {
+  webpackConfig.module.rules.unshift({
+    enforce: 'pre',
+    test: /\.(js|vue)$/,
+    exclude: /node_modules/,
+    loader: 'eslint-loader'
+  })
+}
+
+module.exports = webpackConfig

@@ -2,16 +2,16 @@
   <q-page>
     <div class="user-view">
       <template v-if="user">
-        <h1>User: {{ user.id }}</h1>
-        <ul class="meta">
+        <div class="q-headline">User: {{ user.id }}</div>
+        <ul class="meta q-body-1">
           <li><span class="label">Created:</span> {{ user.created | timeAgo }} ago</li>
           <li><span class="label">Karma:</span> {{ user.karma }}</li>
-          <li v-if="user.about" v-html="user.about" class="about"></li>
+          <li v-if="user.about" v-html="user.about" class="about" />
         </ul>
-        <p class="links">
+        <div class="links">
           <a :href="'https://news.ycombinator.com/submitted?id=' + user.id" target="_blank">submissions</a> |
           <a :href="'https://news.ycombinator.com/threads?id=' + user.id" target="_blank">comments</a>
-        </p>
+        </div>
       </template>
       <template v-else-if="user === false">
         <h1>User not found.</h1>
@@ -23,7 +23,7 @@
 <script>
 
 export default {
-  name: 'user-view',
+  name: 'UserView',
 
   computed: {
     user () {
@@ -31,7 +31,7 @@ export default {
     }
   },
 
-  asyncData ({ store, route: { params: { id }}}) {
+  asyncData ({ store, route: { params: { id } } }) {
     return store.dispatch('FETCH_USER', { id })
   },
 
@@ -50,9 +50,6 @@ export default {
   background-color #fff
   box-sizing border-box
   padding 2em 3em
-  h1
-    margin 0
-    font-size 1.5em
   .meta
     list-style-type none
     padding 0

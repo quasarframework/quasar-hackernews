@@ -6,7 +6,7 @@
         <q-spinner color="primary" size="32px" class="q-ml-md" v-if="loading" />
       </div>
       <ul v-if="!loading" class="comment-children">
-        <comment v-for="id in item.kids" :key="id" :id="id"></comment>
+        <comment v-for="id in item.kids" :key="id" :id="id"/>
       </ul>
     </div>
 
@@ -34,7 +34,7 @@
 import Comment from '../components/Comment.vue'
 
 export default {
-  name: 'item-view',
+  name: 'ItemView',
   components: { Comment },
 
   data: () => ({
@@ -50,7 +50,7 @@ export default {
   // We only fetch the item itself before entering the view, because
   // it might take a long time to load threads with hundreds of comments
   // due to how the HN Firebase API works.
-  asyncData ({ store, route: { params: { id }}}) {
+  asyncData ({ store, route: { params: { id } } }) {
     return store.dispatch('FETCH_ITEMS', { ids: [id] })
   },
 
