@@ -75,7 +75,9 @@ export default {
       }
 
       this.loading = true
+      this.$bar.start()
       fetchComments(this.$store, this.item).then(() => {
+        this.$bar.stop()
         this.loading = false
       })
     }
