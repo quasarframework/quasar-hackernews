@@ -4,8 +4,13 @@ import { createApp } from './app'
 import { QAjaxBar } from 'quasar'
 
 // global progress bar
-const bar = new Vue(QAjaxBar).$mount()
-document.body.appendChild(bar.$el)
+const bar = Vue.prototype.$bar = new Vue({
+  render: h => h(QAjaxBar, {
+    ref: 'bar',
+    props: { color: 'secondary' }
+  })
+}).$mount().$refs.bar
+document.body.appendChild(bar.$parent.$el)
 
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({

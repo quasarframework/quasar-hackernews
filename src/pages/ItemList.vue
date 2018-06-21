@@ -79,9 +79,11 @@ export default {
 
   methods: {
     loadItems (to = this.page, from = -1) {
+      this.$bar.start()
       this.$store.dispatch('FETCH_LIST_DATA', {
         type: this.type
       }).then(() => {
+        this.$bar.stop()
         if (this.page < 0 || this.page > this.maxPage) {
           this.$router.replace(`/${this.type}/1`)
           return
