@@ -2533,8 +2533,8 @@ global-dirs@^0.1.0:
     ini "^1.3.4"
 
 globals@^11.0.1, globals@^11.1.0:
-  version "11.6.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-11.6.0.tgz#7e4d12ffd6b8d174851ff5a246bfb2b8b002a6c7"
+  version "11.7.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-11.7.0.tgz#a583faa43055b1aca771914bf68258e2fc125673"
 
 globals@^9.18.0:
   version "9.18.0"
@@ -4320,9 +4320,9 @@ qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-quasar-framework@^0.17.0-beta.0:
-  version "0.17.0-beta.0"
-  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.0-beta.0.tgz#7fcfae04a7601f6e5bc7000f9d5324929d6e0aca"
+quasar-framework@^0.17.0-beta.2:
+  version "0.17.0-beta.2"
+  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.0-beta.2.tgz#6764f91078de9e37b77280b0eea738e95bf34b9e"
 
 query-string@^4.1.0:
   version "4.3.4"

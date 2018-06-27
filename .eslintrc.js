@@ -27,6 +27,7 @@ module.exports = {
   'rules': {
     'brace-style': [2, 'stroustrup', { 'allowSingleLine': true }],
     'prefer-promise-reject-errors': 0,
+    'promise/param-names': 0,
 
     'vue/max-attributes-per-line': 0,
     'vue/valid-v-for': 0,

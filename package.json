@@ -10,7 +10,7 @@
     "build": "rimraf dist && npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js --progress --hide-modules",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src build server.js"
   },
   "engines": {
     "node": ">=7.0",
@@ -29,7 +29,7 @@
     "lru-cache": "^4.1.1",
     "route-cache": "0.4.3",
     "serve-favicon": "^2.4.5",
-    "quasar-framework": "^0.17.0-beta.0",
+    "quasar-framework": "^0.17.0-beta.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.5.16",
