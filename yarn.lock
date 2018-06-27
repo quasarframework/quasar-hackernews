@@ -4320,9 +4320,9 @@ qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-quasar-framework@^0.17.0-beta.2:
-  version "0.17.0-beta.2"
-  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.0-beta.2.tgz#6764f91078de9e37b77280b0eea738e95bf34b9e"
+quasar-framework@^0.17.0-beta.4:
+  version "0.17.0-beta.4"
+  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.0-beta.4.tgz#10962f3d26015c9d6b2d12aa74ceae973297795b"
 
 query-string@^4.1.0:
   version "4.3.4"
