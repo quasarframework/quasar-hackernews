@@ -1,10 +1,12 @@
 ![Quasar Framework logo](https://cdn.rawgit.com/quasarframework/quasar-art/863c14bd/dist/svg/quasar-logo-full-inline.svg)
 
-> Build responsive websites, PWAs, hybrid mobile Apps (that look native!) and Electron apps using same code, powered with Vue.
+> Build responsive Single Page Apps, **SSR Apps**, PWAs, Hybrid Mobile Apps and Electron Apps, all using the same codebase!, powered with Vue.
 
 # quasar-hackernews
 
 HackerNews clone built with Vue 2.0 + vue-router + vuex + [Quasar Framework](https://quasar-framework.org), with server-side rendering.
+
+*Will get rewritten by using Quasar CLI soon*
 
 <p align="center">
   <a href="https://quasar-hackernews.now.sh" target="_blank">
